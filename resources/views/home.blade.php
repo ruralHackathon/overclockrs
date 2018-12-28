@@ -14,7 +14,14 @@
                         </div>
                     @endif
 
-
+               
+                    
+                    <div id="map">
+                        
+                        
+                        
+                        
+                    </div>
 
 
 
