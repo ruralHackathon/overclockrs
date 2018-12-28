@@ -19,10 +19,7 @@
                     <div id="map">
                         
                         
-                        
-                        
+                            
                     </div>
-
-
-
+                    
 @endsection

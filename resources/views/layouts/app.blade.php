@@ -10,12 +10,15 @@
         <title>{{ config('app.name', 'Alburquerque Monumental') }}</title>
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+       <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH6lnTghb4eej6jFZMlzOW4267zCsef3U"
-        ></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH6lnTghb4eej6jFZMlzOW4267zCsef3U&libraries==places"></script>
+        <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH6lnTghb4eej6jFZMlzOW4267zCsef3U">
+         <script src="{{ asset('js/script.js') }}" defer></script>
 
-        <script src="{{ asset('js/script.js') }}" defer></script>
+
+
+       
 
 
         <!-- Fonts -->
@@ -23,7 +26,9 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <link href="{{ asset('css/main.css') }}" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        
     </head>
     <body>
         <div id="app">
@@ -38,18 +43,18 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
-                        <u                                                           l class="navbar-nav mr-auto">
+                        <ul class="navbar-nav mr-auto">
 
                             </ul>
 
                             <!-- Right Side Of Navbar -->
-                            <ul c                                                                           lass="navbar-nav ml-auto">
+                            <ul class="navbar-nav ml-auto">
                                 <!-- Authentication Links -->
                                 @guest
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
-                                @if (Route::has('                                                                                                  register'))
+                                @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
@@ -63,13 +68,13 @@
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                            onclick="event.preventDefault();
-    document.getElementById('logout-form').submit();">
+                                         document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
 
-                                        <form id="logout-fo                                                                                                                                                                                   rm" action="{{ route('logou                                                                                                                 t') }}" method="POST" s                                                                                                                 tyle="display: none;                                                                                                                 ">
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
-                                            <                                                                                                             /form>
+                                            < /form>
                                     </div>
                                 </li>
                                 @endguest
