@@ -12,9 +12,33 @@
         <!-- Scripts -->
        <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH6lnTghb4eej6jFZMlzOW4267zCsef3U&libraries==places"></script>
-        <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH6lnTghb4eej6jFZMlzOW4267zCsef3U">
-         <script src="{{ asset('js/script.js') }}" defer></script>
+       <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH6lnTghb4eej6jFZMlzOW4267zCsef3U&libraries==places"></script> -->
+       
+        
+         <script>
+             // variable del mapa
+             var map;
+             // variable marcador
+             var marker;
+             // variable array de los marcadores
+             var markers = [];
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 39.2326600, lng: -6.9466500},
+          zoom: 10
+        });
+      
+       marker = new google.maps.Marker({
+        map: map,
+        draggable: false,
+        animation: google.maps.Animation.DROP,
+        position: new google.maps.LatLng(39.2326600,-6.9466500),
+
+      });
+      }
+      
+
+         </script>
 
 
 
@@ -74,7 +98,7 @@
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
-                                            < /form>
+                                            </form>
                                     </div>
                                 </li>
                                 @endguest
@@ -85,6 +109,7 @@
 
             <main class="py-4">
                 @yield('content')
+                 <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH6lnTghb4eej6jFZMlzOW4267zCsef3U&callback=initMap"></script>
             </main>
         </div>
     </body>
