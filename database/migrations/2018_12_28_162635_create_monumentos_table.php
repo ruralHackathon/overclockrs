@@ -15,13 +15,15 @@ class CreateMonumentosTable extends Migration
     {
         Schema::create('monumentos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
             $table->string('name');
+            $table->text('description');
             $table->float('lat');
             $table->float('long');
             $table->timestamps();
-            $table->foreign('user_id')->references('id')->on('user');
-            $table->save();
+            $table->engine = 'InnoDB';
+           //  $table->foreign('user_id')->references('id')->on('user');
+         
+           
         });
     }
 
