@@ -23,10 +23,10 @@
                     </div> 
                     
                     <div style="margin-top: 10px; margin-left: 40px;">
-                        <button class="btn btn-primary" onclick="#" >Visita</button>
-                        <input type="text" placeholder="monumento" style="margin-left: 300px;" disabled="true">
+                        <button class="btn btn-primary" onclick="visitar(document.getElementById('monumento').value)" >Visita</button>
+                        <input id="monumento"type="text" placeholder="monumento" style="margin-left: 300px;">
                     
-</div>
+                    </div>
                 </div>
 
                   

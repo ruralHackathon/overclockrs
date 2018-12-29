@@ -21,22 +21,59 @@
              // variable marcador
              var marker;
              // variable array de los marcadores
-             var markers = [];
+             var markers = [<?php echo json_encode($monumentos) ?>];
+             
+             var misCookies;
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: 39.2326600, lng: -6.9466500},
+          center: {lat: 39.2326600, lng: -6.9466500},    
           zoom: 10
         });
-      
+     
+     
+     
+      for (var i = 0; i < markers[0].length; i+=1) {
+       
+        console.log(markers[0][i]);
+        
+     
        marker = new google.maps.Marker({
         map: map,
         draggable: false,
+        title: markers[0][i].name, 
         animation: google.maps.Animation.DROP,
-        position: new google.maps.LatLng(39.2326600,-6.9466500),
+        position: new google.maps.LatLng(markers[0][i].lat,markers[0][i].long)
 
       });
+      
+       
+    
+       
+      
+      
+      }
+       }
+      
+      function visitar(monumento){
+          alert(monumento);
+          var d = new Date();
+          document.cookie = 'visitado' + "="+ monumento + ";" ;
+          // misCookies = document.cookie;
+          d.setTime(d.getTime() + (2 * 24 * 60 * 60 * 1000));
+          var expires = "expires=" + d.toUTCString();
+          document.cookie = monumento + "=" + 'visitado' + "; " + expires;
+          colorCookies();
       }
       
+      function colorCookies(){
+          alert(misCookies);
+          
+        //     for (var i = 0; misCookies.length; i+=1){
+       //if (marker.getOwnPropertyDescriptor('name') === misCookies[i] ) {
+             
+//}     
+  //   }
+      }
 
          </script>
 

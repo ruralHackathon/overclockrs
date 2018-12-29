@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//use App\Http\Controllers\MonumentoController;
+
+use App\Monumento;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        
+        $monumentos = Monumento::all();   
+        return view('home', compact('monumentos'));
+    
+        
     }
 }
